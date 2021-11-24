@@ -29,8 +29,8 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build ./AzureDemo/AzureDemo.Host/ --configuration Release
-
+        run: dir 
+        
       - name: dotnet publish
         run: dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/${{ env.AZURE_WEBAPP_NAME }}'
 
