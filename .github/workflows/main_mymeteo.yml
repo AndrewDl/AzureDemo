@@ -5,7 +5,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - MyMeteo
 
 env:
   AZURE_WEBAPP_NAME: MyMeteo    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.\AzureDemo.Host\'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: './AzureDemo.Host'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
   
 on:
@@ -13,7 +13,6 @@ on:
     branches:
       - main
   workflow_dispatch:
-
 
 jobs:
   build:
@@ -29,16 +28,16 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build ./AzureDemo.Host/
-        
+        run: dotnet build ./AzureDemo.Host --configuration Release
+
       - name: dotnet publish
-        run: dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/${{ env.AZURE_WEBAPP_NAME }}'
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/AzureDemo.Host
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/${{ env.AZURE_WEBAPP_NAME }}
+          path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
     runs-on: windows-latest
@@ -57,7 +56,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: '${{ env.AZURE_WEBAPP_NAME }}'
+          app-name: 'MyMeteo'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_91372111263444F3999351C8BC480D13 }}
           package: .
