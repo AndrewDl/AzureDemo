@@ -4,7 +4,7 @@
 name: Build and deploy ASP.Net Core app to Azure Web App - MyMeteo
 
 env:
-  AZURE_WEBAPP_NAME: MyMeteo    # set this to your application's name
+  AZURE_WEBAPP_NAME: AzureDemo.Host    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './AzureDemo.Host'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
   
