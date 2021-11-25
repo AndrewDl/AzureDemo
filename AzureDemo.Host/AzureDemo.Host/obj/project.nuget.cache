@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "17QTBrnxSnUsqgx+sd4xoFASekdz84tqZ6Snof3wi00q2xLo9pTrT2XyLbi5NUAtEAuna0B3VMHzUd27CCKT/Q==",
+  "dgSpecHash": "984J2iCjhbU3Rvm6xBPAoZDpFXuo/Ss6qaRo9vN+DjHS4QIbIb1a4Jh1KfV88J5L+d2o+qMdow/nfJXvtBn3sw==",
   "success": true,
   "projectFilePath": "D:\\Users\\Andrew\\Documents\\Arduino\\AzureDemo\\AzureDemo.Host\\AzureDemo.Host\\AzureDemo.Host.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Andrew\\.nuget\\packages\\awssdk.core\\3.7.5.2\\awssdk.core.3.7.5.2.nupkg.sha512",
+    "C:\\Users\\Andrew\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.1\\awssdk.dynamodbv2.3.7.1.nupkg.sha512"
+  ],
   "logs": []
 }
